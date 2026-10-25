@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Cash in Hand, Debt on the Card: How Card Borrowers Say They Would Use a Windfall"
+type: software
+authors:
+  - family-names: Gan
+    given-names: Lena
+    orcid: "https://orcid.org/0009-0008-4032-4460"
+  - family-names: Kay
+    given-names: Sara
+year: 2026
+license: MIT
+keywords:
+  - household finance
+  - Survey of Consumer Finances
+  - credit card debt
+  - co-holding
+  - windfall
+repository-code: "https://github.com/household-finance-lab/project-03"

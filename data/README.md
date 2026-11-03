@@ -47,7 +47,8 @@ shasum -a 256 data/raw/p25i6.dta data/raw/rscfp2025.dta data/raw/p25_rw1.dta
 
 On Linux, use `sha256sum` with the same paths. Include these locally
 calculated values when reporting a reproduction; they identify your copies but
-are not reference hashes supplied by the authors or the Federal Reserve.
+are not reference hashes supplied by the authors or the Federal Reserve. In
+PowerShell, use `Get-FileHash -Algorithm SHA256` on each file.
 
 ## Questions
 

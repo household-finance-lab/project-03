@@ -34,6 +34,21 @@ The build stops on its own if the data drift from what we expect. Watch for thes
 
 A successful build ends with `VALIDATION PASSED`.
 
+### Source-file checksums
+
+The SHA-256 values for the exact source files used in the original analysis
+were not preserved, so this repository cannot certify that a downloaded file
+is byte-for-byte identical to the authors' copy. Record fingerprints for the
+files you use with:
+
+```bash
+shasum -a 256 data/raw/p25i6.dta data/raw/rscfp2025.dta data/raw/p25_rw1.dta
+```
+
+On Linux, use `sha256sum` with the same paths. Include these locally
+calculated values when reporting a reproduction; they identify your copies but
+are not reference hashes supplied by the authors or the Federal Reserve.
+
 ## Questions
 
 Open an Issue, or email householdfinancelab@gmail.com.

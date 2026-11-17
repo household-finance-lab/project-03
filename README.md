@@ -6,19 +6,23 @@ Given an unexpected month of income, would you pay down your debt, or keep the c
 
 Among U.S. families carrying a credit card balance, those who already held more than a month of income in cash said they would put about **12.5 percentage points less** of a windfall toward paying down debt than otherwise similar families (95% CI: 8.9 to 16.0 points).
 
+**What it does not show:** what families actually do (the question is hypothetical), why co-holders answer as they do, or that holding cash *causes* anything. The survey asks about paying down debts of any kind, not credit cards specifically.
+
 📖 [**Read the story**](docs/empirically-yours-03.md) (Empirically Yours №3) · 🔁 [**Reproduce it**](#reproduce-it) · 📎 [**Cite it**](CITATION.cff)
 
-> **Status:** observational, cross-sectional survey data. **Not peer reviewed.** Hypotheses and analysis plan were fixed before results were seen; every change since is logged in [`ANALYTICAL-DECISIONS.md`](ANALYTICAL-DECISIONS.md).
+> **Research status:** observational analysis of cross-sectional survey data. Hypotheses and analysis plan were fixed before results were seen; every change since, including one post hoc check, is logged in [`ANALYTICAL-DECISIONS.md`](ANALYTICAL-DECISIONS.md). **Not peer reviewed.**
 
 ---
+
+## Methodological lesson
+
+**Know what kind of answer you are analyzing, and how many datasets you really have.** The outcome is what families *say they would do* with a windfall, not what they did, so every finding is about stated allocation. And the SCF releases five implicates (five completed versions of the imputed data), not five independent samples. The main estimates combine all five implicates and use the 999 replicate weights, with the sample defined within each implicate. Treating the implicates as separate observations, or using only one, would understate uncertainty.
 
 ## What this study supports
 
 - **H1, supported:** card borrowers who co-hold cash (liquid assets above one month of normal income) *say they would* allocate a smaller share of a windfall to paying down debt. The gap holds in all nine robustness checks, including different cash thresholds, a linear model, all three shares modeled together, and dropping families who usually pay in full.
 - **H2, did not resolve:** the analysis did not resolve whether the card's interest rate is associated with the share families would put toward debt (95% CI: −0.22 to +0.19 points per percentage point of rate).
 - **Prediction:** co-holder status improved out-of-sample prediction beyond income, age, and card balance, in every model and every imputation, but overall prediction is weak (best R² ≈ 0.11). Co-holding shifts the *average* answer; it does not sort individual families.
-
-**What it does not show:** what families actually do (the question is hypothetical), why co-holders answer as they do, or that holding cash *causes* anything. The survey asks about paying down debts of any kind, not credit cards specifically.
 
 ## What changed along the way
 
@@ -46,12 +50,12 @@ Among U.S. families carrying a credit card balance, those who already held more 
 
 **Software:** Stata 19 (StataNow 19.5 used), with `fmlogit` from SSC. Python 3.10+: `pip install -r requirements.txt`.
 
-**Run order:** put the three .dta files in `data/raw/`, open Stata in the project folder, then run:
+**Run order:** put the three .dta files in `data/raw/`, then, from the repository folder:
 
 ```
-code/01_build.do        # merge, recode, define sample, validate   (~1 min)
-code/02_analyze.do      # all models, 999 replicate weights         (~20 min)
-code/03_predict.py      # out-of-sample prediction                 (~30 sec)
+do code/01_build.do         # merge, recode, define sample, validate   (~1 min)
+do code/02_analyze.do       # all models, 999 replicate weights         (~20 min)
+python code/03_predict.py   # out-of-sample prediction                 (~30 sec)
 ```
 
 **How you know it worked:** `01_build.do` ends with `VALIDATION PASSED`, reproducing the Federal Reserve's published windfall shares (22.3% spend, 47.3% save, 30.3% debt). The build reports 4,360 families and 1,568 card revolvers in implicate 1. The primary marginal effect for co-holders is −0.1247.

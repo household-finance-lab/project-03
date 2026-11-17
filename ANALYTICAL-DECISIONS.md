@@ -101,7 +101,7 @@ The four allocation types (exploratory): debt payers (439 families; 92% to debt;
 
 | Finding | Stata | Python |
 |---|---|---|
-| Co-holding matters | −12.5 points (adjusted) | Adding co-holder raises out-of-sample R² in all 3 models and all 5 implicates (gain +0.009 to +0.048) |
+| Co-holding matters | −12.5 points (adjusted) | Adding co-holder to income, age, and card balance raises out-of-sample R² in all 3 models and all 5 implicates (gain +0.009 to +0.048) |
 | Card balance matters most | Strongest control (z ≈ 10) | Top permutation importance; first tree split |
 | Card rate does not | H2 did not resolve | Not among top predictors |
 | Net worth, vehicle loans, age 75+ | Significant | Among the leading predictors |
@@ -112,9 +112,10 @@ In the regression tree, co-holding is the second split on both branches, after c
 **Where they differ, and why this is not a contradiction**
 1. **Prediction is weak overall** (best out-of-sample R² ≈ 0.11, linear regression). Co-holding shifts the *average* stated allocation reliably, but most of what drives an individual family's answer is not captured by the balance sheet. Answers are widely spread and mostly rounded, consistent with the heterogeneity the Fed note reports.
 2. **Linear regression outperforms the flexible models.** No strong hidden nonlinearities or interactions; supports the fractional logit as the primary model.
-3. **Adding all controls does not improve prediction** (linear R² 0.106 → 0.101). In inference the controls rule out confounding; in prediction they mostly add noise. Same data, different questions.
+3. **Adding the full controls to income, age, card balance, and co-holder does not improve prediction** (linear R² 0.106 → 0.101). In inference the controls rule out confounding; in prediction they mostly add noise. Same data, different questions.
 
 **Cautions carried into the write-up**
+- The co-holder gain is measured against a limited baseline (income, age, card balance). Whether co-holder status adds information beyond the full control set was not tested; that would require comparing the full controls with and without co-holder.
 - Permutation importance comes from one implicate and about 310 held-out families; ranks 2–4 change between runs. Report only that card balance ranks first and co-holder is in the leading group.
 - Race/ethnicity is associated with the stated debt share in both layers. It is reported as a pattern, without explanation; R8 shows H1 unchanged without it.
 

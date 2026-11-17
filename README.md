@@ -16,7 +16,7 @@ Among U.S. families carrying a credit card balance, those who already held more 
 
 - **H1, supported:** card borrowers who co-hold cash (liquid assets above one month of normal income) *say they would* allocate a smaller share of a windfall to paying down debt. The gap holds in all nine robustness checks, including different cash thresholds, a linear model, all three shares modeled together, and dropping families who usually pay in full.
 - **H2, did not resolve:** the analysis did not resolve whether the card's interest rate is associated with the share families would put toward debt (95% CI: −0.22 to +0.19 points per percentage point of rate).
-- **Prediction:** knowing whether a family co-holds improves out-of-sample prediction of its answer in every model and every imputation, but overall prediction is weak (best R² ≈ 0.11). Co-holding shifts the *average* answer; it does not sort individual families.
+- **Prediction:** co-holder status improved out-of-sample prediction beyond income, age, and card balance, in every model and every imputation, but overall prediction is weak (best R² ≈ 0.11). Co-holding shifts the *average* answer; it does not sort individual families.
 
 **What it does not show:** what families actually do (the question is hypothetical), why co-holders answer as they do, or that holding cash *causes* anything. The survey asks about paying down debts of any kind, not credit cards specifically.
 

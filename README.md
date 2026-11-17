@@ -16,13 +16,13 @@ Among U.S. families carrying a credit card balance, those who already held more 
 
 ## Methodological lesson
 
-**Know what kind of answer you are analyzing, and how many datasets you really have.** The outcome is what families *say they would do* with a windfall, not what they did, so every finding is about stated allocation. And the SCF releases five implicates (five completed versions of the imputed data), not five independent samples. The main estimates combine all five implicates and use the 999 replicate weights, with the sample defined within each implicate. Treating the implicates as separate observations, or using only one, would understate uncertainty.
+**Know what kind of answer you are analyzing, and how many datasets you really have.** The outcome is what families *say they would do* with a windfall, not what they did, so every finding is about stated allocation. And the SCF releases five implicates (five completed versions of the imputed data), not five independent samples. Main estimates average across all five implicates and combine replicate-weight sampling variance with between-imputation variance, with the sample defined within each implicate. Selected exploratory diagnostics (clustering, the rank-sum check, the regression tree, permutation importance) use implicate 1 and are labeled as such. Treating the five implicates as separate observations would overstate the sample size; using one implicate alone would omit between-imputation uncertainty.
 
 ## What this study supports
 
 - **H1, supported:** card borrowers who co-hold cash (liquid assets above one month of normal income) *say they would* allocate a smaller share of a windfall to paying down debt. The gap holds in all nine robustness checks, including different cash thresholds, a linear model, all three shares modeled together, and dropping families who usually pay in full.
 - **H2, did not resolve:** the analysis did not resolve whether the card's interest rate is associated with the share families would put toward debt (95% CI: −0.22 to +0.19 points per percentage point of rate).
-- **Prediction:** co-holder status improved out-of-sample prediction beyond income, age, and card balance, in every model and every imputation, but overall prediction is weak (best R² ≈ 0.11). Co-holding shifts the *average* answer; it does not sort individual families.
+- **Prediction:** co-holder status improved out-of-sample prediction beyond income, age, and card balance, in every model and every imputation, but overall prediction is weak (best R² ≈ 0.11). Co-holding shifts the *average* answer. It adds some predictive information, but individual predictions remain imprecise.
 
 ## What changed along the way
 

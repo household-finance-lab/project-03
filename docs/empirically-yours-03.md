@@ -99,9 +99,7 @@ That's a question, not a finding.
 
 The usual advice assumes people compare interest rates.
 
-Our results suggest many people compare *labels*.
-
-A dollar labeled "safety" tends to stay where it is, even when paying down the debt would earn more.
+Families who already had a cash cushion said they'd send less of a windfall to debt. One explanation is that people compare *labels*: a dollar labeled "safety" stays where it is. But needing cash for bills, expecting an expense, or simply feeling safer would produce the same answer. This survey can't tell them apart.
 
 ## Where this goes next
 

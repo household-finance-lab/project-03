@@ -23,7 +23,7 @@ Because card balances, liquid assets, and income are partly imputed, sample memb
 | Whose characteristics | Reference person throughout | Respondent, by re-reversing X8000 | The public file already reverses respondent/spouse where needed, and the summary extract describes the reference person. Re-reversing would mix people across variables. |
 | Source of covariates | Fed summary extract; employment from X4100 | Building all from the main data set | Matches the Fed's published definitions and avoids re-coding. The extract's labor-force variable is binary, so the 4-category employment variable is built from X4100. Check: extract age equals X14 for every record. |
 | Missing data | Use the Fed's five implicates; combine with the Fed's formula | Re-imputing (e.g., MICE) | Missing values are already multiply imputed by the Fed. Re-imputing would be an error. |
-| Variance | Point estimates averaged over 5 implicates; sampling variance from 999 replicate weights (× multiplicity factors) on implicate 1; total = U + (6/5)B | Implicate 1 only; unweighted SEs | The SCF codebook's method. Implicate-1-only analysis understates uncertainty. |
+| Variance | Point estimates averaged over 5 implicates; sampling variance from 999 replicate weights (× multiplicity factors) on implicate 1; total = U + (6/5)B | Implicate 1 only; unweighted SEs | The SCF codebook's method. Implicate-1-only analysis omits between-imputation uncertainty. |
 | Income for the co-holder threshold | Normal income (NORMINC) | Total income (X5729) | The windfall question asks about one month of *normal* income. |
 | Liquid assets | LIQ (checking, savings, money market, call accounts) | The Fed note's broader definition (adds CDs, funds, stocks, bonds) | Matches Gross & Souleles (2002), whose puzzle this tests. |
 | Co-holder threshold | Liquid assets > one month of normal income | Other cutoffs | Same as Gross & Souleles (2002) and the same size as the windfall. Other cutoffs tested in R4. |
@@ -93,7 +93,7 @@ H2 did not resolve in any check.
 | **C4: k-means run from 10 starts per solution, best kept** | A single random start gave unstable results | Calinski now rises steadily (1,900 / 2,745 / 2,934 / 3,350) |
 | **C4: number of clusters chosen for interpretability (4)** | Calinski did not select a best number | 4-cluster solution reported; 5 and 6 in appendix. Stated plainly as a judgment call. |
 
-The four allocation types (exploratory): debt payers (439 families; 92% to debt; 27% co-holders), balanced (574; 17/41/41), spenders (268; 66% spend), savers (287; 91% save; 59% co-holders).
+The four allocation types (exploratory; k-means on implicate 1, unweighted, clusters then described with weights): debt payers (439 families; 92% to debt; 27% co-holders), balanced (574; 17/41/41), spenders (268; 66% spend), savers (287; 91% save; 59% co-holders).
 
 ## 6. Reconciling inference and prediction
 
@@ -107,7 +107,7 @@ The four allocation types (exploratory): debt payers (439 families; 92% to debt;
 | Net worth, vehicle loans, age 75+ | Significant | Among the leading predictors |
 | Budget strain, late payment | Significant (C3, exploratory) | Adding exploratory variables helps gradient boosting most |
 
-In the regression tree, co-holding is the second split on both branches, after card balance.
+In the regression tree (implicate 1, descriptive), co-holding is the second split on both branches, after card balance.
 
 **Where they differ, and why this is not a contradiction**
 1. **Prediction is weak overall** (best out-of-sample R² ≈ 0.11, linear regression). Co-holding shifts the *average* stated allocation reliably, but most of what drives an individual family's answer is not captured by the balance sheet. Answers are widely spread and mostly rounded, consistent with the heterogeneity the Fed note reports.
